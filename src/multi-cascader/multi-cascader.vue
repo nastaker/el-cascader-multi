@@ -3,6 +3,7 @@
     <el-select
       v-model="selectedLabels"
       multiple
+      :style="{width: width + '%'}"
       :popper-class="innerPopperClass"
       @remove-tag="removeOne"
       :filterable="filterable"
@@ -76,6 +77,10 @@ export default {
     renderList
   },
   props: {
+    width: {
+      type: Number,
+      default: () => 100
+    },
     data: {
       type: Array,
       default: () => [],
@@ -294,50 +299,11 @@ export default {
       background-color: #fff;
     }
   }
-  .li-style {
-    height: 34px;
-    padding: 0px 20px;
-    box-sizing: border-box;
-    list-style: none;
-    width: 160px;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    line-height: 34px;
-    &:hover{
-      background-color: rgba(69,200,220,.1);
-    }
-    &.selected {
-      color: #45c8dc;
-    }
-    &.active-li {
-      background-color: rgba(69,200,220,.1);
-      color: #45c8dc;
-    }
-    .li-label-style{
-      text-align: left;
-      width: 100%;
-      box-sizing: border-box;
-      padding-right: 15px;
-      position: relative;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      .li-label-icon {
-        position: absolute;
-        right: 0px;
-        top: 50%;
-        transform: translate(0, -50%);
-      }
-    }
-  }
   .ground {
     width: 100%;
     height: 204px;
   }
   .floor-item {
-    width: 160px;
     border-left: 1px solid #eee;
     position: absolute;
     top: 0;
