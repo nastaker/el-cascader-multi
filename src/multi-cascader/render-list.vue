@@ -7,11 +7,9 @@
       :class="{'active-li': activeList[level - 1] === node.id}"
       @mouseenter="handleMouseEnter(node, nodeIndex, level)"
     >
-      <p class="li-label-style">
-        <el-checkbox @change="handleCheck($event, node)" v-model="node.checked" :disabled="node.disabled"></el-checkbox>
-        <span style="margin-left:5px">{{node[labelKey]}}</span>
-        <i v-if="node.childNodes && node.childNodes.length > 0" class="li-label-icon el-icon-arrow-right"></i>
-      </p>
+      <el-checkbox @change="handleCheck($event, node)" v-model="node.checked" :disabled="node.disabled"></el-checkbox>
+      <span style="margin-left:5px">{{node[labelKey]}}</span>
+      <i v-if="node.childNodes && node.childNodes.length > 0" class="li-label-icon el-icon-arrow-right"></i>
     </li>
   </ul>
 </template>
@@ -61,6 +59,34 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  ul {
+    padding: 0;
+  }
+  
+  ul li.li-style {
+    height: 34px;
+    line-height: 34px;
+    box-sizing: border-box;
+    list-style: none;
+    width: 160px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    &:hover{
+      background-color: rgba(69,200,220,.1);
+    }
+    &.selected {
+      color: #45c8dc;
+    }
+    &.active-li {
+      background-color: rgba(69,200,220,.1);
+      color: #45c8dc;
+    }
+  }
+  ul li label.el-checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 </style>
