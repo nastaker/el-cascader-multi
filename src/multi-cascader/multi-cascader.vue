@@ -174,7 +174,12 @@ export default {
       this.$emit('focus', e)
     },
     handleClear () {
-      this.$emit('clear')
+      let _this = this
+      _this.selectedNodes.forEach(function(value, index, arr){
+        value.checked = false
+        _this.handleCheck(value)
+      })
+      _this.$emit('clear')
     },
     selectOne (item) {
       item.checked = !item.checked
