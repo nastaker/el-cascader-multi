@@ -7,8 +7,10 @@
       @mouseenter="handleMouseEnter(node, nodeIndex, level)"
     >
       <el-checkbox @change="handleCheck($event, node)" v-model="node.checked" :disabled="node.disabled"></el-checkbox>
-      <span @click="handleClick(node, nodeIndex, level)" style="margin-left:5px">{{node[labelKey]}}</span>
-      <i v-if="node.childNodes && node.childNodes.length > 0" class="li-label-icon el-icon-arrow-right"></i>
+      <span @click="handleClick(node, nodeIndex, level)">
+        {{node[labelKey]}}
+        <i v-if="node.childNodes && node.childNodes.length > 0" class="li-label-icon el-icon-arrow-right"></i>
+      </span>
     </li>
   </ul>
 </template>
@@ -64,12 +66,11 @@ export default {
   }
   
   ul li.li-style {
+    display: flex;
+    width: 160px;
     height: 34px;
     line-height: 34px;
-    box-sizing: border-box;
     list-style: none;
-    width: 160px;
-    cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
