@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="floor-item">
     <li class="li-style"
       v-for="(node, nodeIndex) in list"
       :key="getKey(node)"
@@ -88,5 +88,14 @@ export default {
   ul li label.el-checkbox {
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .floor-item {
+    border-left: 1px solid #eee;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 204px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 </style>
