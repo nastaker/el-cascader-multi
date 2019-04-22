@@ -308,14 +308,6 @@ export default {
     width: 100%;
     height: 204px;
   }
-  .floor-item {
-    border-left: 1px solid #eee;
-    position: absolute;
-    top: 0;
-    height: 204px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
 
 }
 $width: 160px;
